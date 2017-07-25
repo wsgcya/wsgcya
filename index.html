@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>爱你哟</title>
+
+<style type="text/css">
+@font-face {
+	font-family: digit;
+	src: url('digital-7_mono.ttf') format("truetype");
+}
+</style>
+
+<link href="css/default.css" type="text/css" rel="stylesheet">
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/garden.js"></script>
+<script type="text/javascript" src="js/functions.js"></script>
+
+</head>
+
+<body>
+<script>
+document.write("<span id=time></span>") //输出显示时间日期的容器
+//每1000毫秒(即1秒) 执行一次本段代码
+setInterval("time.innerText=new Date().toLocaleString()",1000) 
+</script>
+
+<div id="mainDiv">
+	<div id="content">
+		<div id="code">
+			<span class="comments">/**</span><br />
+			<span class="space"/><span class="comments">*2013—01-24,</span><br />
+			<span class="space"/><span class="comments">*/</span><br />
+			Boy name = <span class="keyword">Mr</span> GAN<br />
+			Girl name = <span class="keyword">Mrs</span> HUANG<br />
+			<span class="comments">// 我上班在干什么.</span><br />
+			亲爱哒，我好想你!;<br />
+			<span class="comments">// 我上班在干什么.</span><br />
+			嘿嘿，亲亲，亲亲，亲亲。。。。。。;<br />
+			<span class="comments">//我上班在干什么.</span><br />
+			本来想写些肉麻麻，甜腻腻;<br />
+			<span class="comments">// 我上班在干什么.</span><br />
+			骚骚的话;<br />
+			<span class="comments">// 我上班在干什么.</span><br />
+			结果自己想到这些;<br />
+			<span class="comments">// 我上班在干什么.</span><br />
+			就忍不住笑了;<br />
+			<span class="comments">// 我上班在干什么.</span><br />
+			不过我知道你懂哒;<br />
+			么么哒;<br />
+			（领导一直走来走去，好害怕，跑咯，biubiu。）;<br />
+		</div>
+		<div id="loveHeart">
+			<canvas id="garden"></canvas>
+			<div id="words">
+				<div id="messages">
+					亲爱的，这是我们相爱在一起的时光。
+					<div id="elapseClock"></div>
+				</div>
+				<div id="loveu">
+					爱你直到永永远远。<br/>
+					<div class="signature">- GC</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+var offsetX = $("#loveHeart").width() / 2;
+var offsetY = $("#loveHeart").height() / 2 - 55;
+var together = new Date();
+together.setFullYear(2013, 1, 24);
+together.setHours(00);
+together.setMinutes(0);
+together.setSeconds(0);
+together.setMilliseconds(0);
+
+if (!document.createElement('canvas').getContext) {
+	var msg = document.createElement("div");
+	msg.id = "errorMsg";
+	msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+	document.body.appendChild(msg);
+	$("#code").css("display", "none")
+	$("#copyright").css("position", "absolute");
+	$("#copyright").css("bottom", "10px");
+	document.execCommand("stop");
+} else {
+	setTimeout(function () {
+		startHeartAnimation();
+	}, 5000);
+
+	timeElapse(together);
+	setInterval(function () {
+		timeElapse(together);
+	}, 500);
+
+	adjustCodePosition();
+	$("#code").typewriter();
+}
+</script>
+<div style="text-align:center;clear:both">
+</div>
+
+</body>
+</html>
